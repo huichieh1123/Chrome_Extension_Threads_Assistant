@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Threads Helper Settings</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>審查器開關</h2>
+        </div>
+        <ul class="settings-list">
+            <li>
+                <span class="setting-name">情緒貼文審查器</span>
+                <label class="switch">
+                    <input type="checkbox" id="sentiment-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </li>
+            <div id="sentiment-threshold-selector" class="threshold-selector hidden">
+                <div class="emoji-bar">
+                    <span class="emoji" data-level="4" title="很正面">🥰</span>
+                    <span class="emoji" data-level="3" title="正面">🙂</span>
+                    <span class="emoji" data-level="2" title="普通">😐</span>
+                    <span class="emoji" data-level="1" title="負面">😕</span>
+                    <span class="emoji" data-level="0" title="很負面">😠</span>
+                </div>
+                <p class="threshold-description">點擊表情，過濾該情緒以下的貼文</p>
+            </div>
+            <li>
+                <span class="setting-name">假新聞審查器</span>
+                <label class="switch">
+                    <input type="checkbox" id="fakenews-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </li>
+            <li>
+                <span class="setting-name">相關貼文審查器</span>
+                <label class="switch">
+                    <input type="checkbox" id="related-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

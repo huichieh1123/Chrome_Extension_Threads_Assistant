@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Threads Sentiment Reader",
+  "version": "1.0",
+  "description": "Analyzes and displays sentiment for posts on threads.net.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.threads.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.threads.net/*"
+      ],
+      "js": [
+        "content.js",
+        "overlay.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
