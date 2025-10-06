@@ -16,20 +16,24 @@
 ## 📂 專案結構
 
 ```
-threads-reader/
-├── backend/         # Python FastAPI 後端
-│   ├── app.py       # 主應用程式
-│   ├── sentiment/   # 情緒分析模組 (佔位)
-│   ├── store/       # 快取模組
-│   └── ...
-├── extension/       # Chrome 擴充功能 (MV3)
-│   ├── manifest.json
-│   ├── content.js   # 抓取頁面內容
-│   ├── background.js  # 與後端通訊
-│   ├── popup.html   # 彈出視窗 UI
-│   ├── popup.js     # 彈出視窗邏輯
-│   └── ...
-└── README.md        # 本說明檔案
+Chrome_Extension_Threads_Assistant-dev/
+├── backend/
+│   ├── app.py              # FastAPI 後端主程式
+│   ├── sentiment/          # 情緒分析模組
+│   ├── store/              # 快取模組
+│   └── schemas.py          # 資料結構定義
+├── extension/
+│   ├── manifest.json       # 擴充功能設定檔
+│   ├── content.js          # 內容腳本
+│   ├── background.js       # 背景腳本
+│   ├── overlay.js          # 標籤覆蓋層
+│   ├── popup.html          # 設定彈窗
+│   └── popup.js            # 彈窗邏輯
+├── api_client.py           # API 客戶端
+├── config.py               # 爬蟲配置
+├── main.py                 # 爬蟲主程式
+├── scraper.py              # 爬蟲核心邏輯
+└── requirements.txt        # Python 依賴套件
 ```
 
 ## 🚀 啟動指南
@@ -40,38 +44,51 @@ threads-reader/
 
 - Python 3.8+
 - Google Chrome 瀏覽器
+- pip (Python 套件管理器)
 
-### 1. 後端設定與啟動 (Backend)
+# 1. 後端設定與啟動 (Backend)
 
 打開你的終端機 (例如：Powershell, Cmd)，然後執行以下指令：
 
-**a. 進入專案根目錄**
-```sh
-cd C:\Users\ajhui\桌面\projects\google_extension_threads_helper\threads-reader
+**a.進入專案目錄**
 ```
-
-**b. 建立並啟用虛擬環境**
-```sh
-# 建立虛擬環境
+cd D:\Download\Chrome_Extension_Threads_Assistant-dev\Chrome_Extension_Threads_Assistant-dev
+```
+**b.建立虛擬環境**
+```
 python -m venv .venv
-
-# 啟用虛擬環境 (Windows)
+```
+**c.啟用虛擬環境**
+```
 .venv\Scripts\activate
 ```
-啟用後，你應該會看到指令列前方出現 `(.venv)` 的字樣。
-
-**c. 安裝依賴套件**
-```sh
-pip install -r backend/requirements.txt
+**d.安裝依賴套件**
 ```
-
-**d. 啟動 FastAPI 伺服器**
+pip install -r requirements.txt
+```
+**e.啟動 FastAPI 伺服器**
 ```sh
 uvicorn backend.app:app --reload
 ```
 看到 `Application startup complete.` 的訊息即表示後端已成功在 `http://127.0.0.1:8000` 上運行。
 
-### 2. 擴充功能安裝 (Extension)
+# 2. 啟動爬蟲
+
+**開啟第二個終端：**
+```
+python crawler/main.py
+```
+操作步驟：
+
+a.程式會自動開啟 Chrome 瀏覽器 ，這時請先往下看 ***3.擴充功能安裝 (Extension)***
+
+b.在瀏覽器中登入 Threads（如需要）
+
+c.回到終端按 Enter 開始監控
+
+d.爬蟲每 2 秒自動抓取可見貼文
+
+# 3. 擴充功能安裝 (Extension)
 
 **a. 開啟 Chrome 擴充功能頁面**
    在 Chrome 網址列輸入 `chrome://extensions` 並進入。
@@ -82,9 +99,7 @@ uvicorn backend.app:app --reload
 **c. 載入擴充功能**
    點擊左上角的**「載入未封裝項目」**按鈕，然後選擇本專案中的 `extension` 資料夾。
 
-   路徑: `C:\Users\ajhui\桌面\projects\google_extension_threads_helper\threads-reader\extension`
-
-完成後，你應該會在頁面上看到 "Threads Sentiment Reader" 的卡片。
+   路徑: ```D:\Download\Chrome_Extension_Threads_Assistant-dev\Chrome_Extension_Threads_Assistant-dev\extension```
 
 ## ⚠️ 重要提醒
 
