@@ -1,0 +1,154 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    width: 250px;
+    padding: 10px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.header h2 {
+    font-size: 16px;
+    margin: 0;
+    color: #1a1a1a;
+}
+
+.settings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.settings-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 4px;
+    border-bottom: 1px solid #eee;
+}
+
+.settings-list li:last-child {
+    border-bottom: none;
+}
+
+.setting-name {
+    font-size: 14px;
+}
+
+/* The switch - a round slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Emoji Threshold Selector */
+.threshold-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    background-color: #e9e9f0;
+    border-radius: 8px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    border-top: 1px solid #eee;
+}
+
+.emoji-bar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.emoji {
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.emoji:hover {
+    background-color: #dcdcf0;
+}
+
+.emoji.selected {
+    background-color: #c8c8e0;
+}
+
+.threshold-description {
+    font-size: 11px;
+    color: #666;
+    margin: 4px 0 0 0;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
