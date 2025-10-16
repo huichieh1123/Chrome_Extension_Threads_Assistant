@@ -67,7 +67,7 @@ pip install -r requirements.txt
 uvicorn backend.app:app --reload
 ```
 看到 `Application startup complete.` 的訊息即表示後端已成功在 `http://127.0.0.1:8000` 上運行。
-
+**f.在google 開啟Thread**
 
 # 2. 擴充功能安裝 (Extension)
 
