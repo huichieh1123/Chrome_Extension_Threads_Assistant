@@ -1,31 +1,30 @@
 {
   "manifest_version": 3,
-  "name": "Threads Sentiment Reader",
-  "version": "1.0",
-  "description": "Analyzes and displays sentiment for posts on threads.net.",
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting"
-  ],
+  "name": "Threads Sentiment Filter",
+  "version": "1.0.0",
+  "description": "在 Threads 頁面即時評分貼文情緒，低於閾值直接隱藏 DOM（本機 Python API）。",
+  "permissions": ["storage"],
   "host_permissions": [
-    "*://*.threads.net/*"
+    "https://www.threads.net/*",
+    "https://www.threads.com/*",
+    "http://127.0.0.1:8723/*"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "bg.js"
   },
   "content_scripts": [
     {
       "matches": [
-        "*://*.threads.net/*"
+        "https://www.threads.net/*",
+        "https://www.threads.com/*"
       ],
-      "js": [
-        "content.js",
-        "overlay.js"
-      ]
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
     }
   ],
   "action": {
+    "default_title": "Sentiment Filter",
     "default_popup": "popup.html"
   }
 }

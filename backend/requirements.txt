@@ -1,6 +1,0 @@
-fastapi
-uvicorn[standard]
-pydantic
-# Using a common library like transformers or textblob would be typical
-# For this placeholder, we can use scikit-learn for its simplicity in creating a dummy model
-scikit-learn

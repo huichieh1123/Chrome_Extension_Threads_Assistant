@@ -1,0 +1,11 @@
+/* 完全隱藏（不佔版面） */
+.xaj-hidden {
+  display: none !important;
+}
+
+/* 先淡出檢查用：不想直接消失可用這個 class */
+.xaj-dim {
+  opacity: 0.2 !important;
+  filter: blur(2px);
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
