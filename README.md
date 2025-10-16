@@ -23,17 +23,13 @@ Chrome_Extension_Threads_Assistant-dev/
 │   ├── store/              # 快取模組
 │   └── schemas.py          # 資料結構定義
 ├── extension/
-│   ├── manifest.json       # 擴充功能設定檔
+│   ├── manifest.json       # 擴充功能設定檔，爬蟲
 │   ├── content.js          # 內容腳本
 │   ├── background.js       # 背景腳本
 │   ├── overlay.js          # 標籤覆蓋層
 │   ├── popup.html          # 設定彈窗
 │   └── popup.js            # 彈窗邏輯
-├── api_client.py           # API 客戶端
-├── config.py               # 爬蟲配置
-├── main.py                 # 爬蟲主程式
-├── scraper.py              # 爬蟲核心邏輯
-└── requirements.txt        # Python 依賴套件
+
 ```
 
 ## 🚀 啟動指南
@@ -72,23 +68,8 @@ uvicorn backend.app:app --reload
 ```
 看到 `Application startup complete.` 的訊息即表示後端已成功在 `http://127.0.0.1:8000` 上運行。
 
-# 2. 啟動爬蟲
 
-**開啟第二個終端：**
-```
-python crawler/main.py
-```
-操作步驟：
-
-a.程式會自動開啟 Chrome 瀏覽器 ，這時請先往下看 ***3.擴充功能安裝 (Extension)***
-
-b.在瀏覽器中登入 Threads（如需要）
-
-c.回到終端按 Enter 開始監控
-
-d.爬蟲每 2 秒自動抓取可見貼文
-
-# 3. 擴充功能安裝 (Extension)
+# 2. 擴充功能安裝 (Extension)
 
 **a. 開啟 Chrome 擴充功能頁面**
    在 Chrome 網址列輸入 `chrome://extensions` 並進入。
